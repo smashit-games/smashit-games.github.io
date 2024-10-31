@@ -28,10 +28,15 @@ function App() {
 
         {/* Social Icons (Top Right) */}
         <div className="absolute top-4 right-4 flex space-x-4">
-          <a href="https://smashit.games/discord" target="_blank" rel="noopener noreferrer">
-            <FaDiscord size={32} />
+          <a
+            href="https://smashit.games/discord"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Discord"
+          >
+            <FaDiscord size={52} />
           </a>
-          {/* Add additional social icons as needed */}
+            {/* Add additional social icons as needed */}
         </div>
 
         {/* Centered Mailing List Signup */}
