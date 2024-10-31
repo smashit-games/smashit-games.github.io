@@ -1,8 +1,6 @@
-![reactjs-vite-tailwindcss-boilerplate](https://user-images.githubusercontent.com/16243531/217138979-b854309c-4742-4275-a705-f9fec5158217.jpg)
+# smashit.games official website
 
-# React Tailwindcss Boilerplate build with Vite
-
-This is a boilerplate build with Vite, React 18, TypeScript, Vitest, Testing Library, TailwindCSS 3, Eslint and Prettier.
+This is the repo for smashit.games official website
 
 ## What is inside?
 
@@ -20,17 +18,14 @@ This project uses many tools like:
 ## Getting Started
 
 ### Install
+Install pre-reqs if you don't have them
+- [NodeJS latest LTS](https://nodejs.org)
+- [pnpm](https://pnpm.io/installation)
 
-Create the project.
-
-```bash
-pnpm dlx degit joaopaulomoraes/reactjs-vite-tailwindcss-boilerplate my-app
-```
-
-Access the project directory.
+Clone the project and access the project's root directory
 
 ```bash
-cd my-app
+cd smashit-games.github.io
 ```
 
 Install dependencies.
@@ -39,7 +34,7 @@ Install dependencies.
 pnpm install
 ```
 
-Serve with hot reload at <http://localhost:5173>.
+Serve with hot reload at <http://localhost:5173> by default.
 
 ```bash
 pnpm run dev
@@ -77,4 +72,5 @@ pnpm run test:ui
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License with exceptions for
+any proprietary smashit.games assets or branding.
