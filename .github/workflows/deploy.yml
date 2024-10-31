@@ -1,3 +1,5 @@
+# .github/workflows/deploy.yml
+
 name: Deploy to GitHub Pages
 
 on:
@@ -12,23 +14,27 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        node-version: [22]  # Use the latest LTS version here if supported
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
         with:
-          node-version: '22'
+          version: 9
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
 
-      - name: Enable and install pnpm using Corepack
-        run: |
-          corepack enable
-          corepack prepare pnpm@latest --activate
-
-      - name: Install dependencies with pnpm
+      - name: Install dependencies
         run: pnpm install
 
       - name: Run build
