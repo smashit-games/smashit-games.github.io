@@ -1,6 +1,7 @@
 // /src/App.tsx
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import GlitchText from './components/GlitchText';
 import heroImage from './assets/hero-min.png';
 import felSurvivorLogo from './assets/FelSurvivorVR_Logo_V2.png';
@@ -58,9 +59,9 @@ function App() {
         <footer className="absolute bottom-4 w-full text-center text-sm">
           &copy; {new Date().getFullYear()} smashit.games
           <span className="mx-2">|</span>
-          <a href="/privacy-policy" className="underline hover:text-white">
+          <Link to="/privacy-policy" className="underline hover:text-white">
             Privacy Policy
-          </a>
+          </Link>
         </footer>
       </div>
     </div>

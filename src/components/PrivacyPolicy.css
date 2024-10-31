@@ -1,0 +1,18 @@
+﻿/* /src/components/PrivacyPolicy.css */
+
+.privacy-policy-container {
+  @apply min-h-screen bg-darkGreen text-terminalGreen font-sans pt-8 pb-8 px-8;
+  overflow-y: auto;
+}
+
+.privacy-policy-button {
+  @apply absolute top-4 left-4 p-2 border border-terminalGreen hover:bg-terminalGreen hover:text-darkGreen;
+  z-index: 10;
+}
+
+.privacy-policy-content {
+  @apply prose prose-invert max-w-2xl mx-auto mt-8 pt-12 pb-8 px-6; /* Add padding and space for button */
+  position: relative; /* Relative positioning for button within content area */
+  padding-left: 1rem;
+  padding-right: 1rem;
+}

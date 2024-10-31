@@ -20,6 +20,11 @@ body {
   overflow: hidden; /* No scroll */
 }
 
+/* Enable scrolling only on the Privacy Policy page */
+body.scrollable {
+  overflow: auto;
+}
+
 /* Hero Section */
 .hero-section {
   @apply relative w-full h-screen;
