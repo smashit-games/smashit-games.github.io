@@ -1,6 +1,6 @@
 # MIT License
 
-Copyright (c) 2022 João Paulo Moraes
+Copyright (c) 2024 smashit.games
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -8,6 +8,22 @@ in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
+
+**1. Exclusion of Assets:**
+This license does *not* grant permission to use, copy, modify, or
+distribute any assets located in the `public/assets` or `src/assets`
+folders. These assets, which include but are not limited to images,
+fonts, logos, and other multimedia files, are restricted and may not
+be used for any purpose, commercial or otherwise, without prior
+written permission from smashit.games.
+
+**2. Exclusion of Branding and Trademark:**
+This license does *not* grant permission to use the name "smashit.games,"
+its branding, or any related trademarks. Users are prohibited from using
+the name, logo, or any branding elements in a way that implies endorsement
+or affiliation, or in any way that could cause confusion as to the origin
+or ownership of the software. Impersonation or misrepresentation of smashit.games
+or any affiliated individuals is strictly prohibited.
 
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
