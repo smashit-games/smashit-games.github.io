@@ -1,8 +1,16 @@
-import { createRoot } from 'react-dom/client'
-import 'tailwindcss/tailwind.css'
-import App from 'components/App'
+// /src/index.tsx
 
-const container = document.getElementById('root') as HTMLDivElement
-const root = createRoot(container)
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './components/App';
+import './index.css';
 
-root.render(<App />)
+import '../public/fonts/VT323-Regular.ttf';
+
+const rootElement = document.getElementById('root') as HTMLElement;
+
+ReactDOM.createRoot(rootElement).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);

@@ -1,69 +1,59 @@
-import Avatar from 'components/Avatar'
-import logo from 'assets/logo.svg'
+// /src/App.tsx
 
-const randoms = [
-  [1, 2],
-  [3, 4, 5],
-  [6, 7]
-]
+import React from 'react';
+import heroImage from '../assets/hero-min.png';
 
 function App() {
   return (
-    <div className="relative overflow-hidden bg-white">
-      <div className="h-screen sm:pb-40 sm:pt-24 lg:pb-48 lg:pt-40">
-        <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
-          <div className="sm:max-w-lg">
-            <div className="my-4">
-              <Avatar size="large" src={logo} />
-            </div>
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              Welcome!
-            </h1>
-            <p className="mt-4 text-xl text-gray-500">
-              This is a boilerplate build with Vite, React 18, TypeScript,
-              Vitest, Testing Library, TailwindCSS 3, Eslint and Prettier.
-            </p>
-          </div>
-          <div className="my-10">
-            <a
-              href="vscode://"
-              className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-700 focus:ring-offset-2"
-            >
-              Start building for free
-            </a>
-            <div
-              aria-hidden="true"
-              className="pointer-events-none mt-10 md:mt-0 lg:absolute lg:inset-y-0 lg:mx-auto lg:w-full lg:max-w-7xl"
-            >
-              <div className="absolute sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
-                <div className="flex items-center space-x-6 lg:space-x-8">
-                  {randoms.map((random, number) => (
-                    <div
-                      key={`random-${random[number]}`}
-                      className="grid shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8"
-                    >
-                      {random.map((number) => (
-                        <div
-                          key={`random-${number}`}
-                          className="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100"
-                        >
-                          <img
-                            src={`https://picsum.photos/600?random=${number}`}
-                            alt=""
-                            className="size-full bg-indigo-100 object-cover object-center"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
+    <div className="min-h-screen bg-darkGreen text-terminalGreen font-terminal flex flex-col items-center">
+      {/* Logo and Navigation */}
+      <header className="w-full max-w-6xl p-4 flex flex-col md:flex-row justify-between items-center">
+        <div className="text-5xl mb-4 md:mb-0">
+          smashit.games
         </div>
-      </div>
+        <nav className="space-x-4">
+          <a href="https://smashit.games/discord">Discord</a>
+          <a href="#mailing-list">Mailing List</a>
+        </nav>
+      </header>
+
+      {/* Hero Section */}
+      <main className="flex-1 w-full max-w-6xl flex flex-col-reverse md:flex-row items-center p-4">
+        <div className="md:w-1/2 text-center md:text-left">
+          <h1 className="text-6xl mb-4">Fel Survivors</h1>
+          <p className="text-2xl mb-6">
+            An upcoming VR experience that pushes the boundaries of reality.
+          </p>
+          <a href="https://smashit.games/discord" className="text-2xl">
+            Join our Discord
+          </a>
+        </div>
+        <div className="md:w-1/2 mb-6 md:mb-0">
+          <img src={heroImage} alt="Hero" className="w-full border border-terminalGreen" />
+        </div>
+      </main>
+
+      {/* Mailing List */}
+      <section id="mailing-list" className="w-full max-w-6xl p-4">
+        <h2 className="text-4xl mb-4">Stay Updated</h2>
+        <form className="flex flex-col md:flex-row items-center">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            className="p-2 mb-4 md:mb-0 md:mr-4 w-full md:w-auto"
+          />
+          <button type="submit" className="p-2 border border-terminalGreen">
+            Sign Up
+          </button>
+        </form>
+      </section>
+
+      {/* Footer */}
+      <footer className="w-full max-w-6xl p-4 text-center">
+        &copy; {new Date().getFullYear()} smashit.games
+      </footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

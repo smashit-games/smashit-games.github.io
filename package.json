@@ -1,17 +1,17 @@
 {
-  "name": "reactjs-vite-tailwindcss-boilerplate",
-  "description": "This is a boilerplate build with Vite, React 18, TypeScript, Vitest, Testing Library, TailwindCSS 3, Eslint and Prettier.",
+  "name": "smashit.games",
+  "description": "smashit.games, brisbane based VR indie game dev's official website",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "author": {
-    "name": "João Paulo Moraes",
-    "email": "joaopaulomoraes@outlook.com",
-    "url": "https://github.com/joaopaulomoraes"
+    "name": "Luke Hewitt",
+    "email": "lukehewitt@smashit.games",
+    "url": "https://unclelukie.com"
   },
   "bugs": {
-    "url": "https://github.com/joaopaulomoraes/reactjs-vite-tailwindcss-boilerplate/issues",
-    "email": "joaopaulomoraes@outlook.com"
+    "url": "https://github.com/smashit-games/smashit-games.github.io/issues",
+    "email": "lukehewitt@smashit.games"
   },
   "scripts": {
     "dev": "vite",

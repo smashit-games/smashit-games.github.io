@@ -1,0 +1,36 @@
+﻿/* /src/index.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import the VT323 font */
+@font-face {
+  font-family: 'VT323';
+  src: url('../public/fonts/VT323-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Apply global styles */
+body {
+  @apply bg-darkGreen text-terminalGreen font-terminal;
+}
+
+/* Additional styles */
+a {
+  @apply text-terminalGreen underline;
+}
+
+a:hover {
+  @apply text-white;
+}
+
+input,
+button {
+  @apply bg-grungeGreen border border-terminalGreen text-terminalGreen placeholder-terminalGreen;
+}
+
+button {
+  @apply font-bold hover:bg-terminalGreen hover:text-darkGreen;
+}
