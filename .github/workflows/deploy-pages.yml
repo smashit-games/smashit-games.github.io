@@ -23,13 +23,10 @@ jobs:
           node-version: '22'
           cache: 'pnpm'
 
-      - name: Install pnpm
-        run: |
-          curl -fsSL https://get.pnpm.io/install.sh | sh -
-          export PNPM_HOME="$HOME/.local/share/pnpm"
-          export PATH="$PNPM_HOME:$PATH"
-          echo "PNPM_HOME=$PNPM_HOME" >> $GITHUB_ENV
-          echo "PATH=$PNPM_HOME:$PATH" >> $GITHUB_ENV
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 'latest'
 
       - name: Install dependencies with pnpm
         run: pnpm install
