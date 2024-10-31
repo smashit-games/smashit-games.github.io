@@ -12,15 +12,32 @@
   font-style: normal;
 }
 
-/* Apply global styles */
+/* Global Styles */
 body {
   @apply bg-darkGreen text-terminalGreen font-terminal;
   margin: 0;
   padding: 0;
-  overflow: hidden; /* Prevent scrolling due to canvas */
+  overflow: hidden; /* No scroll */
 }
 
-/* Additional styles */
+/* Hero Section */
+.hero-section {
+  @apply relative w-full h-screen;
+}
+
+.hero-image {
+  @apply w-full h-full object-cover;
+}
+
+.hero-overlay {
+  @apply flex items-center z-10;
+}
+
+.glitch {
+  @apply z-20; /* Ensures the text overlay is on top */
+}
+
+/* Additional Styles for links and buttons */
 a {
   @apply text-terminalGreen;
 }
@@ -36,22 +53,4 @@ button {
 
 button {
   @apply font-bold hover:bg-terminalGreen hover:text-darkGreen;
-}
-
-/* Styles for the hero image and overlay text */
-.hero-section {
-  @apply relative w-full h-screen;
-}
-
-.hero-image {
-  @apply w-full h-full object-cover;
-}
-
-.hero-overlay {
-  @apply absolute inset-0 flex items-center;
-  z-index: 1; /* Ensure it's above the matrix effect */
-}
-
-.glitch {
-  @apply z-10; /* Ensure text is on top */
 }

@@ -1,57 +1,63 @@
 // /src/App.tsx
 
 import React from 'react';
-import MatrixEffect from './components/MatrixEffect';
 import GlitchText from './components/GlitchText';
 import heroImage from './assets/hero-min.png';
-import { FaDiscord, FaTwitter, FaFacebook } from 'react-icons/fa';
+import felSurvivorLogo from './assets/FelSurvivorVR_Logo_V2.png';
+import { FaDiscord } from 'react-icons/fa';
 
 function App() {
   return (
     <div className="min-h-screen bg-darkGreen text-terminalGreen font-terminal relative overflow-hidden">
-      {/* Matrix Effect */}
-      <MatrixEffect />
-
       {/* Hero Section */}
-      <main>
-        <div className="hero-section relative">
-          <img src={heroImage} alt="Hero" className="hero-image" />
-          <div className="hero-overlay flex items-center">
-            <GlitchText text="All Systems Nominal" className="ml-8" />
-          </div>
-        </div>
-      </main>
+      <div className="w-full h-screen relative flex flex-col items-center justify-center">
+        <img src={heroImage} alt="Hero" className="absolute inset-0 w-full h-full object-cover" />
 
-      {/* Social Links and Mailing List */}
-      <section className="absolute bottom-0 w-full p-4 flex justify-between items-center">
-        {/* Social Icons */}
-        <div className="flex space-x-4">
+        {/* Top Left Game Logo */}
+        <a href="https://smashit.games/felsurvivors" className="absolute top-4 left-4">
+          <img src={felSurvivorLogo} alt="Fel Survivors" className="w-24 h-auto" />
+        </a>
+
+        {/* Mission Statement (Centered) */}
+        <div className="hero-overlay flex items-center">
+          <GlitchText
+            text="All Systems Nominal"
+            className="text-4xl md:text-6xl lg:text-8xl"
+          />
+        </div>
+
+        {/* Social Icons (Top Right) */}
+        <div className="absolute top-4 right-4 flex space-x-4">
           <a href="https://smashit.games/discord" target="_blank" rel="noopener noreferrer">
             <FaDiscord size={32} />
           </a>
-          {/* Add other social icons as needed */}
+          {/* Add additional social icons as needed */}
         </div>
 
-        {/* Mailing List Signup */}
-        <div id="mailing-list">
-          <h2 className="text-2xl mb-2">stay updated</h2>
-          <form className="flex">
+        {/* Centered Mailing List Signup */}
+        <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 max-w-xs text-center">
+          <h2 className="text-xl mb-2">access the feed</h2>
+          <form className="flex justify-center">
             <input
               type="email"
               placeholder="enter your email"
-              className="p-2 bg-transparent border border-terminalGreen text-terminalGreen placeholder-terminalGreen"
+              className="p-2 bg-transparent border border-terminalGreen text-terminalGreen placeholder-terminalGreen flex-grow"
             />
             <button type="submit" className="p-2 border border-terminalGreen ml-2">
-              sign up
+              decrypt
             </button>
           </form>
         </div>
-      </section>
 
-      {/* Footer */}
-      <footer className="absolute bottom-0 w-full p-2 text-center">
-        &copy; {new Date().getFullYear()} smashit.games
-      </footer>
+        {/* Footer (Bottom Center) */}
+        <footer className="absolute bottom-4 w-full text-center text-sm">
+          &copy; {new Date().getFullYear()} smashit.games
+          <span className="mx-2">|</span>
+          <a href="/privacy-policy" className="underline hover:text-white">
+            Privacy Policy
+          </a>
+        </footer>
+      </div>
     </div>
   );
 }

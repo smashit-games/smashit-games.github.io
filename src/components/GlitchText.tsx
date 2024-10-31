@@ -15,7 +15,7 @@ const GlitchText: React.FC<GlitchTextProps> = ({ text, className }) => (
       options={{
         strings: text,
         autoStart: true,
-        loop: true,
+        loop: false,
         delay: 75,
       }}
     />
