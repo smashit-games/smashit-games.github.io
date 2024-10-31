@@ -10,8 +10,8 @@ export default {
       },
       colors: {
         terminalGreen: '#00FF00',
-        darkGreen: '#003300',
-        grungeGreen: '#005500',
+        darkGreen: '#001100', // Darker grungier green
+        grungeGreen: '#002200',
       },
       backgroundImage: {
         'hero-pattern': "url('/src/assets/hero-min.png')",

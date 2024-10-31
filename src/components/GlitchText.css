@@ -1,0 +1,92 @@
+﻿/* /src/components/GlitchText.css */
+
+.glitch {
+  position: relative;
+  color: #00ff00;
+  font-size: 3rem;
+  font-family: 'VT323', monospace;
+  text-transform: uppercase;
+  animation: glitch 1s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+}
+
+.glitch::before {
+  text-shadow: 2px 0 red;
+  clip: rect(0, 900px, 0, 0);
+  animation: glitchTop 1s infinite;
+}
+
+.glitch::after {
+  text-shadow: -2px 0 blue;
+  clip: rect(0, 900px, 0, 0);
+  animation: glitchBottom 1s infinite;
+}
+
+@keyframes glitch {
+  0% {
+    transform: none;
+  }
+  20% {
+    transform: skew(0.5deg);
+  }
+  40% {
+    transform: skew(-0.5deg);
+  }
+  60% {
+    transform: skew(0.5deg);
+  }
+  80% {
+    transform: skew(-0.5deg);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes glitchTop {
+  0% {
+    clip: rect(0, 900px, 0, 0);
+  }
+  20% {
+    clip: rect(0, 900px, 85px, 0);
+  }
+  40% {
+    clip: rect(0, 900px, 0, 0);
+  }
+  60% {
+    clip: rect(0, 900px, 85px, 0);
+  }
+  80% {
+    clip: rect(0, 900px, 0, 0);
+  }
+  100% {
+    clip: rect(0, 900px, 0, 0);
+  }
+}
+
+@keyframes glitchBottom {
+  0% {
+    clip: rect(0, 900px, 0, 0);
+  }
+  20% {
+    clip: rect(85px, 900px, 170px, 0);
+  }
+  40% {
+    clip: rect(0, 900px, 0, 0);
+  }
+  60% {
+    clip: rect(85px, 900px, 170px, 0);
+  }
+  80% {
+    clip: rect(0, 900px, 0, 0);
+  }
+  100% {
+    clip: rect(0, 900px, 0, 0);
+  }
+}

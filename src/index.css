@@ -7,7 +7,7 @@
 /* Import the VT323 font */
 @font-face {
   font-family: 'VT323';
-  src: url('../public/fonts/VT323-Regular.ttf') format('truetype');
+  src: url('/fonts/VT323-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,11 +15,14 @@
 /* Apply global styles */
 body {
   @apply bg-darkGreen text-terminalGreen font-terminal;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent scrolling due to canvas */
 }
 
 /* Additional styles */
 a {
-  @apply text-terminalGreen underline;
+  @apply text-terminalGreen;
 }
 
 a:hover {
@@ -28,9 +31,27 @@ a:hover {
 
 input,
 button {
-  @apply bg-grungeGreen border border-terminalGreen text-terminalGreen placeholder-terminalGreen;
+  @apply bg-transparent border border-terminalGreen text-terminalGreen placeholder-terminalGreen;
 }
 
 button {
   @apply font-bold hover:bg-terminalGreen hover:text-darkGreen;
+}
+
+/* Styles for the hero image and overlay text */
+.hero-section {
+  @apply relative w-full h-screen;
+}
+
+.hero-image {
+  @apply w-full h-full object-cover;
+}
+
+.hero-overlay {
+  @apply absolute inset-0 flex items-center;
+  z-index: 1; /* Ensure it's above the matrix effect */
+}
+
+.glitch {
+  @apply z-10; /* Ensure text is on top */
 }
