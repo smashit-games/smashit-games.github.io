@@ -1,5 +1,3 @@
-# .github/workflows/deploy.yml
-
 name: Deploy to GitHub Pages
 
 on:
@@ -26,7 +24,12 @@ jobs:
           cache: 'pnpm'
 
       - name: Install pnpm
-        run: corepack enable && corepack prepare pnpm@latest --activate
+        run: |
+          curl -fsSL https://get.pnpm.io/install.sh | sh -
+          export PNPM_HOME="$HOME/.local/share/pnpm"
+          export PATH="$PNPM_HOME:$PATH"
+          echo "PNPM_HOME=$PNPM_HOME" >> $GITHUB_ENV
+          echo "PATH=$PNPM_HOME:$PATH" >> $GITHUB_ENV
 
       - name: Install dependencies with pnpm
         run: pnpm install
