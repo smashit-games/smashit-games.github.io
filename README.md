@@ -1,6 +1,6 @@
 # smashit.games official website
 
-This is the repo for smashit.games official website
+This is the repo for smashit.games official website live at: https://smashit-games.github.io
 
 ## What is inside?
 
