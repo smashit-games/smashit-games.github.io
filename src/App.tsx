@@ -75,17 +75,14 @@ function App() {
 
         {/* Social Icons with Hover Effect (Top Right) */}
         <div className="absolute top-6 right-6 flex space-x-4 p-2">
-          <motion.a
-            href="https://smashit.games/discord"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Discord"
-            className="p-5"
-            variants={glitchVariants}
-            whileHover="hover"
-          >
-            <FaDiscord size={52} />
-          </motion.a>
+          <Link to="/discord" aria-label="Discord" className="p-5">
+            <motion.div
+              variants={glitchVariants}
+              whileHover="hover"
+            >
+              <FaDiscord size={52} />
+            </motion.div>
+          </Link>
         </div>
 
         {/* Mailing List Subscription Form */}
@@ -100,7 +97,7 @@ function App() {
             <input
               type="hidden"
               name="l"
-              value="02fe8640-ed4c-465c-b3c7-6c330453b07d" // List ID for "smashit.games"
+              value="02fe8640-ed4c-465c-b3c7-6c330453b07d"
             />
             <input
               type="email"
