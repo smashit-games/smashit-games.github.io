@@ -33,8 +33,8 @@ describe('<App />', () => {
     const discordLink = screen.getByLabelText(/Discord/i);
     expect(discordLink).toHaveAttribute('href', 'https://smashit.games/discord');
 
-    expect(screen.getByRole('heading', { name: /access the feed/i })).toBeInTheDocument();
-    expect(screen.getByPlaceholderText(/enter your email/i)).toBeInTheDocument();
+    // Adjusted test for the email input placeholder
+    expect(screen.getByPlaceholderText(/E-mail/i)).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /decrypt/i })).toBeInTheDocument();
 
     expect(

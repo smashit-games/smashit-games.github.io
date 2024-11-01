@@ -11,11 +11,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  // Function to toggle the modal
-  const toggleModal = () => setIsModalOpen((prev) => !prev);
-
-  // Intermittent shake animation
   const [isShaking, setIsShaking] = useState(false);
 
   useEffect(() => {
@@ -27,13 +22,12 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
-  // Animation variants
+  const toggleModal = () => setIsModalOpen((prev) => !prev);
+
   const shakeVariants = {
     shake: {
       rotate: [0, -10, 10, -10, 10, 0],
-      transition: {
-        duration: 0.5,
-      },
+      transition: { duration: 0.5 },
     },
     initial: {},
   };
@@ -47,10 +41,7 @@ function App() {
         '2px -2px 0px #00f',
         '0px 0px 0px #fff',
       ],
-      transition: {
-        duration: 0.3,
-        yoyo: Infinity,
-      },
+      transition: { duration: 0.3, yoyo: Infinity },
     },
   };
 
@@ -58,40 +49,28 @@ function App() {
     <div className="min-h-screen bg-darkGreen text-terminalGreen font-terminal relative overflow-hidden">
       {/* Hero Section */}
       <div className="w-full h-screen relative flex flex-col items-center justify-center">
-        <img
-          src={heroImage}
-          alt="Hero"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+        <img src={heroImage} alt="Hero" className="absolute inset-0 w-full h-full object-cover" />
 
         {/* Top Left Game Logo with Hover Effect */}
         <div className="absolute top-6 left-6 p-5">
           <motion.div
             onClick={toggleModal}
-            className={`relative cursor-pointer`}
+            className="relative cursor-pointer"
             variants={shakeVariants}
             animate={isShaking ? 'shake' : 'initial'}
             whileHover="shake"
-            style={{
-              boxShadow: isModalOpen ? '0 0 15px #003300' : 'none',
-              borderRadius: '50%', // For circular shadow
-            }}
+            style={{ boxShadow: isModalOpen ? '0 0 15px #003300' : 'none', borderRadius: '50%' }}
           >
             <img src={felSurvivorLogo} alt="Fel Survivors" className="w-24 h-auto" />
           </motion.div>
 
           {/* Terminal Modal */}
-          <AnimatePresence>
-            {isModalOpen && <TerminalModal isOpen={isModalOpen} />}
-          </AnimatePresence>
+          <AnimatePresence>{isModalOpen && <TerminalModal isOpen={isModalOpen} />}</AnimatePresence>
         </div>
 
         {/* Mission Statement (Centered) */}
         <div className="hero-overlay flex items-center">
-          <GlitchText
-            text="All Systems Nominal"
-            className="text-4xl md:text-6xl lg:text-8xl"
-          />
+          <GlitchText text="All Systems Nominal" className="text-4xl md:text-6xl lg:text-8xl" />
         </div>
 
         {/* Social Icons with Hover Effect (Top Right) */}
@@ -107,19 +86,36 @@ function App() {
           >
             <FaDiscord size={52} />
           </motion.a>
-          {/* Add additional social icons as needed */}
         </div>
 
-        {/* Centered Mailing List Signup */}
+        {/* Mailing List Subscription Form */}
         <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 max-w-xs text-center">
           <h2 className="text-xl mb-2">access the feed</h2>
-          <form className="flex justify-center">
+          <form
+            method="post"
+            action="https://listmonk.smashit.games/subscription/form"
+            target="_blank"
+            className="flex flex-col items-center listmonk-form"
+          >
+            <input
+              type="hidden"
+              name="l"
+              value="02fe8640-ed4c-465c-b3c7-6c330453b07d" // List ID for "smashit.games"
+            />
             <input
               type="email"
-              placeholder="enter your email"
-              className="p-2 bg-transparent border border-terminalGreen text-terminalGreen placeholder-terminalGreen flex-grow"
+              name="email"
+              required
+              placeholder="E-mail"
+              className="p-2 bg-transparent border border-terminalGreen text-terminalGreen placeholder-terminalGreen w-full mb-2"
             />
-            <button type="submit" className="p-2 border border-terminalGreen ml-2">
+            <input
+              type="text"
+              name="name"
+              placeholder="Name (optional)"
+              className="p-2 bg-transparent border border-terminalGreen text-terminalGreen placeholder-terminalGreen w-full mb-4"
+            />
+            <button type="submit" className="p-2 border border-terminalGreen w-full">
               decrypt
             </button>
           </form>
