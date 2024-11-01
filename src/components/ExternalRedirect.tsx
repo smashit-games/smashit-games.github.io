@@ -1,6 +1,6 @@
 ﻿// src/components/ExternalRedirect.tsx
 
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 interface ExternalRedirectProps {
   to: string;

@@ -31,7 +31,7 @@ describe('<App />', () => {
     expect(screen.getByText(/PressKit/i)).toBeInTheDocument();
 
     const discordLink = screen.getByLabelText(/Discord/i);
-    expect(discordLink).toHaveAttribute('href', 'https://smashit.games/discord');
+    expect(discordLink).toHaveAttribute('href', '/discord');
 
     // Adjusted test for the email input placeholder
     expect(screen.getByPlaceholderText(/E-mail/i)).toBeInTheDocument();
