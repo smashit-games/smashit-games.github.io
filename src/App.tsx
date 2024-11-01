@@ -76,10 +76,7 @@ function App() {
         {/* Social Icons with Hover Effect (Top Right) */}
         <div className="absolute top-6 right-6 flex space-x-4 p-2">
           <Link to="/discord" aria-label="Discord" className="p-5">
-            <motion.div
-              variants={glitchVariants}
-              whileHover="hover"
-            >
+            <motion.div variants={glitchVariants} whileHover="hover">
               <FaDiscord size={52} />
             </motion.div>
           </Link>
