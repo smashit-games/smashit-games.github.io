@@ -13,13 +13,13 @@ const rootElement = document.getElementById('root') as HTMLElement;
 
 ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
-    <BrowserRouter basename={`/${process.env.PUBLIC_URL}`}>
+    <BrowserRouter basename="/">
       <Routes>
-        <Route path="" element={<App />} />
-        <Route path="privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="fspresskit" element={<FSPressKit />} />
+        <Route path="/" element={<App />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/fspresskit" element={<FSPressKit />} />
         <Route
-          path="discord"
+          path="/discord"
           element={<ExternalRedirect to="https://discord.gg/84zvK3y3Cs" />}
         />
       </Routes>

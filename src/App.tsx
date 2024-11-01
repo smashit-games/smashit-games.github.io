@@ -75,7 +75,7 @@ function App() {
 
         {/* Social Icons with Hover Effect (Top Right) */}
         <div className="absolute top-6 right-6 flex space-x-4 p-2">
-          <Link to="/discord" aria-label="Discord" className="p-5">
+          <Link to="discord" aria-label="Discord" className="p-5">
             <motion.div variants={glitchVariants} whileHover="hover">
               <FaDiscord size={52} />
             </motion.div>
@@ -119,7 +119,7 @@ function App() {
         <footer className="absolute bottom-4 w-full text-center text-sm">
           &copy; {new Date().getFullYear()} smashit.games
           <span className="mx-2">|</span>
-          <Link to="/privacy-policy" className="underline hover:text-white">
+          <Link to="privacy-policy" className="underline hover:text-white">
             Privacy Policy
           </Link>
         </footer>
