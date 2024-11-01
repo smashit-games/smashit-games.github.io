@@ -1,6 +1,6 @@
-// /src/App.test.tsx
+// src/App.test.tsx
 
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { vi } from 'vitest';
 import App from './App';
@@ -21,8 +21,14 @@ describe('<App />', () => {
 
     const felSurvivorsImage = screen.getByAltText(/Fel Survivors/i);
     expect(felSurvivorsImage).toBeInTheDocument();
-    const felSurvivorsLink = felSurvivorsImage.closest('a');
-    expect(felSurvivorsLink).toHaveAttribute('href', 'https://smashit.games/felsurvivors');
+
+    // Simulate clicking the logo to open the modal
+    fireEvent.click(felSurvivorsImage);
+
+    // Check that the modal is displayed
+    expect(screen.getByText(/Meta Store Demo/i)).toBeInTheDocument();
+    expect(screen.getByText(/^Meta Store$/i)).toBeInTheDocument();
+    expect(screen.getByText(/PressKit/i)).toBeInTheDocument();
 
     const discordLink = screen.getByLabelText(/Discord/i);
     expect(discordLink).toHaveAttribute('href', 'https://smashit.games/discord');
@@ -31,7 +37,12 @@ describe('<App />', () => {
     expect(screen.getByPlaceholderText(/enter your email/i)).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /decrypt/i })).toBeInTheDocument();
 
-    expect(screen.getByText(new RegExp(`© ${new Date().getFullYear()} smashit\\.games`, 'i'))).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /privacy policy/i })).toHaveAttribute('href', '/privacy-policy');
+    expect(
+      screen.getByText(new RegExp(`© ${new Date().getFullYear()} smashit\\.games`, 'i'))
+    ).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /privacy policy/i })).toHaveAttribute(
+      'href',
+      '/privacy-policy'
+    );
   });
 });

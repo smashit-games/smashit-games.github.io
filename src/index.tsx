@@ -1,9 +1,8 @@
-// src/index.tsx
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import FSPressKit from './components/FSPressKit';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
 
@@ -15,6 +14,7 @@ ReactDOM.createRoot(rootElement).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/fspresskit" element={<FSPressKit />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

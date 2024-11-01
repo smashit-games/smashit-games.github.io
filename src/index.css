@@ -59,3 +59,7 @@ button {
 button {
   @apply font-bold hover:bg-terminalGreen hover:text-darkGreen;
 }
+
+.glow-effect img {
+  box-shadow: 0 0 30px #003300;
+}

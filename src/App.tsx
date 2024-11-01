@@ -1,23 +1,90 @@
-// /src/App.tsx
+// src/App.tsx
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import GlitchText from './components/GlitchText';
+import TerminalModal from './components/TerminalModal';
 import heroImage from './assets/hero-min.png';
 import felSurvivorLogo from './assets/FelSurvivorVR_Logo_V2.png';
 import { FaDiscord } from 'react-icons/fa';
+import { motion, AnimatePresence } from 'framer-motion';
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Function to toggle the modal
+  const toggleModal = () => setIsModalOpen((prev) => !prev);
+
+  // Intermittent shake animation
+  const [isShaking, setIsShaking] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsShaking(true);
+      setTimeout(() => setIsShaking(false), 500); // Shake duration
+    }, 5000); // Shake every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Animation variants
+  const shakeVariants = {
+    shake: {
+      rotate: [0, -10, 10, -10, 10, 0],
+      transition: {
+        duration: 0.5,
+      },
+    },
+    initial: {},
+  };
+
+  const glitchVariants = {
+    hover: {
+      textShadow: [
+        '0px 0px 0px #fff',
+        '2px 2px 0px #f00',
+        '-2px -2px 0px #0f0',
+        '2px -2px 0px #00f',
+        '0px 0px 0px #fff',
+      ],
+      transition: {
+        duration: 0.3,
+        yoyo: Infinity,
+      },
+    },
+  };
+
   return (
     <div className="min-h-screen bg-darkGreen text-terminalGreen font-terminal relative overflow-hidden">
       {/* Hero Section */}
       <div className="w-full h-screen relative flex flex-col items-center justify-center">
-        <img src={heroImage} alt="Hero" className="absolute inset-0 w-full h-full object-cover" />
+        <img
+          src={heroImage}
+          alt="Hero"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
 
-        {/* Top Left Game Logo */}
-        <a href="https://smashit.games/felsurvivors" className="absolute top-4 left-4">
-          <img src={felSurvivorLogo} alt="Fel Survivors" className="w-24 h-auto" />
-        </a>
+        {/* Top Left Game Logo with Hover Effect */}
+        <div className="absolute top-6 left-6 p-5">
+          <motion.div
+            onClick={toggleModal}
+            className={`relative cursor-pointer`}
+            variants={shakeVariants}
+            animate={isShaking ? 'shake' : 'initial'}
+            whileHover="shake"
+            style={{
+              boxShadow: isModalOpen ? '0 0 15px #003300' : 'none',
+              borderRadius: '50%', // For circular shadow
+            }}
+          >
+            <img src={felSurvivorLogo} alt="Fel Survivors" className="w-24 h-auto" />
+          </motion.div>
+
+          {/* Terminal Modal */}
+          <AnimatePresence>
+            {isModalOpen && <TerminalModal isOpen={isModalOpen} />}
+          </AnimatePresence>
+        </div>
 
         {/* Mission Statement (Centered) */}
         <div className="hero-overlay flex items-center">
@@ -27,17 +94,20 @@ function App() {
           />
         </div>
 
-        {/* Social Icons (Top Right) */}
-        <div className="absolute top-4 right-4 flex space-x-4">
-          <a
+        {/* Social Icons with Hover Effect (Top Right) */}
+        <div className="absolute top-6 right-6 flex space-x-4 p-2">
+          <motion.a
             href="https://smashit.games/discord"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Discord"
+            className="p-5"
+            variants={glitchVariants}
+            whileHover="hover"
           >
             <FaDiscord size={52} />
-          </a>
-            {/* Add additional social icons as needed */}
+          </motion.a>
+          {/* Add additional social icons as needed */}
         </div>
 
         {/* Centered Mailing List Signup */}
