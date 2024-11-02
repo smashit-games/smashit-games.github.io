@@ -35,7 +35,8 @@ body.scrollable {
 }
 
 .hero-overlay {
-  @apply flex items-center z-10;
+  @apply flex items-center;
+  margin-top: -120px; /* Adjust this value as needed */
 }
 
 .glitch {
