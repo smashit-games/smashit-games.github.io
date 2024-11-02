@@ -13,19 +13,19 @@ describe('<SGPressKit />', () => {
     );
 
     // Check for header elements
-    expect(screen.getByText(/Smashit Games Press Kit/i)).toBeInTheDocument();
-    expect(screen.getByAltText(/Smashit Games Logo/i)).toBeInTheDocument();
+    expect(screen.getByText(/Press Kit/i)).toBeInTheDocument();
+    expect(screen.getByAltText(/smashit.games Logo/i)).toBeInTheDocument();
 
     // Check for section headings
-    expect(screen.getByText(/Company Overview/i)).toBeInTheDocument();
-    expect(screen.getByText(/Founders/i)).toBeInTheDocument();
-    expect(screen.getByText(/Mission Statement/i)).toBeInTheDocument();
+    expect(screen.getByText(/Who We Are/i)).toBeInTheDocument();
+    expect(screen.getByText(/Meet the Team/i)).toBeInTheDocument();
+    expect(screen.getByText(/Our Mission/i)).toBeInTheDocument();
     expect(screen.getByText(/Media Assets/i)).toBeInTheDocument();
-    expect(screen.getByText(/Contact Information/i)).toBeInTheDocument();
+    expect(screen.getByText(/Contact Us/i)).toBeInTheDocument();
 
-    // Check for founder names
-    expect(screen.getByText(/JB Hewitt/i)).toBeInTheDocument();
-    expect(screen.getByText(/Luke Hewitt/i)).toBeInTheDocument();
+    // Check for founder names using getAllByText to handle duplicates
+    expect(screen.getAllByText(/JB Hewitt/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/Luke Hewitt/i).length).toBeGreaterThan(0);
 
     // Check for Back to Home link
     expect(screen.getByText(/← Back to Home/i)).toBeInTheDocument();

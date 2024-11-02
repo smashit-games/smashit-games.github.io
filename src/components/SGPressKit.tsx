@@ -27,7 +27,6 @@ const SGPressKit: React.FC = () => {
       {/* Company Overview */}
       <section className="presskit-section">
         <h2>Who We Are</h2>
-        <br/>
         <p>
           We’re smashit.games, a VR indie game studio out of Brisbane, Australia, founded by two Rockhampton-born brothers, Luke and JB Hewitt, who’ve been chasing the dream of building wild, immersive gaming experiences since forever. We’re about making VR games that push boundaries and pull players into new worlds.
         </p>
@@ -62,7 +61,6 @@ const SGPressKit: React.FC = () => {
       {/* Mission Statement */}
       <section className="presskit-section">
         <h2>Our Mission</h2>
-        <br />
         <p>
           We’re on a mission to make VR games that stand out. For us, it’s about creating immersive, groundbreaking
           experiences that make you forget the world around you. We’re dedicated to growing Brisbane’s game dev
@@ -73,7 +71,6 @@ const SGPressKit: React.FC = () => {
       {/* Media Assets */}
       <section className="presskit-section">
         <h2>Media Assets</h2>
-        <br />
         <ul>
           <li>
             <a href="/smashitgameslogo.png" download>
