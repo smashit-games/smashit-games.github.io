@@ -1,7 +1,5 @@
-﻿// src/components/TerminalModal.test.tsx
-
-import React from 'react';
-import { render, screen } from '@testing-library/react';
+﻿import React from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import TerminalModal from './TerminalModal';
 import { MemoryRouter } from 'react-router-dom';
 
@@ -26,19 +24,33 @@ describe('<TerminalModal />', () => {
     expect(screen.getByText(/PressKit/i)).toBeInTheDocument();
   });
 
-  it('should have correct links', () => {
+  it('should display "Coming Soon" on hover over Meta Store Demo and Meta Store links', () => {
     render(
       <MemoryRouter>
         <TerminalModal isOpen={true} />
       </MemoryRouter>
     );
 
-    const demoLink = screen.getByText(/Meta Store Demo/i).closest('a');
-    const storeLink = screen.getByText(/^Meta Store$/i).closest('a');
-    const presskitLink = screen.getByText(/PressKit/i).closest('a');
+    // Hover over Meta Store Demo
+    const demoElement = screen.getByText('Meta Store Demo');
+    fireEvent.mouseEnter(demoElement);
+    expect(screen.getByText('Coming Soon')).toBeInTheDocument();
 
-    expect(demoLink).toHaveAttribute('href', 'https://www.meta.com/store/demo-link');
-    expect(storeLink).toHaveAttribute('href', 'https://www.meta.com/store/main-game-link');
+    // Hover over Meta Store
+    const storeElement = screen.getByText('Meta Store');
+    fireEvent.mouseLeave(demoElement); // Remove hover from demoElement
+    fireEvent.mouseEnter(storeElement);
+    expect(screen.getByText('Coming Soon')).toBeInTheDocument();
+  });
+
+  it('should have a working link for PressKit', () => {
+    render(
+      <MemoryRouter>
+        <TerminalModal isOpen={true} />
+      </MemoryRouter>
+    );
+
+    const presskitLink = screen.getByText(/PressKit/i).closest('a');
     expect(presskitLink).toHaveAttribute('href', '/fspresskit');
   });
 });

@@ -1,7 +1,5 @@
-﻿// src/components/TerminalModal.tsx
-
-import React from 'react';
-import { FaStore, FaGamepad, FaFileAlt } from 'react-icons/fa';
+﻿import React, { useState } from 'react';
+import { FaStore, FaGamepad, FaFileAlt, FaClock } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import './TerminalModal.css';
@@ -11,6 +9,9 @@ interface TerminalModalProps {
 }
 
 const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen }) => {
+  const [isComingSoonDemo, setIsComingSoonDemo] = useState(false);
+  const [isComingSoonStore, setIsComingSoonStore] = useState(false);
+
   if (!isOpen) return null;
 
   // Animation variants
@@ -49,24 +50,27 @@ const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen }) => {
       exit="exit"
     >
       <div className="terminal-modal-links">
-        <a
-          href="https://www.meta.com/store/demo-link" // Replace with actual link
-          target="_blank"
-          rel="noopener noreferrer"
+        {/* Meta Store Demo link with Coming Soon effect */}
+        <div
           className="terminal-modal-link"
+          onMouseEnter={() => setIsComingSoonDemo(true)}
+          onMouseLeave={() => setIsComingSoonDemo(false)}
         >
-          <FaGamepad size={32} />
-          <span>Meta Store Demo</span>
-        </a>
-        <a
-          href="https://www.meta.com/store/main-game-link" // Replace with actual link
-          target="_blank"
-          rel="noopener noreferrer"
+          {isComingSoonDemo ? <FaClock size={32} /> : <FaGamepad size={32} />}
+          <span>{isComingSoonDemo ? 'Coming Soon' : 'Meta Store Demo'}</span>
+        </div>
+
+        {/* Meta Store link with Coming Soon effect */}
+        <div
           className="terminal-modal-link"
+          onMouseEnter={() => setIsComingSoonStore(true)}
+          onMouseLeave={() => setIsComingSoonStore(false)}
         >
-          <FaStore size={32} />
-          <span>Meta Store</span>
-        </a>
+          {isComingSoonStore ? <FaClock size={32} /> : <FaStore size={32} />}
+          <span>{isComingSoonStore ? 'Coming Soon' : 'Meta Store'}</span>
+        </div>
+
+        {/* Working Press Kit Link */}
         <Link to="/fspresskit" className="terminal-modal-link">
           <FaFileAlt size={32} />
           <span>PressKit</span>

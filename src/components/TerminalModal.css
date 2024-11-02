@@ -1,6 +1,4 @@
-﻿/* src/components/TerminalModal.css */
-
-.terminal-modal {
+﻿.terminal-modal {
   position: absolute;
   top: 130px;
   transform: translateX(-50%);
@@ -28,10 +26,11 @@
   gap: 0.5rem;
   color: #00FF00;
   text-decoration: none;
+  cursor: default;
 }
 
 .terminal-modal-link:hover {
-  color: white;
+  color: #ffffff;
 }
 
 .terminal-modal-link span {
