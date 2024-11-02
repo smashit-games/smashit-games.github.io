@@ -122,6 +122,10 @@ function App() {
           <Link to="privacy-policy" className="underline hover:text-white">
             Privacy Policy
           </Link>
+          <span className="mx-2">|</span>
+          <Link to="sgpresskit" className="underline hover:text-white">
+            Press Kit
+          </Link>
         </footer>
       </div>
     </div>
