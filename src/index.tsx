@@ -18,8 +18,8 @@ ReactDOM.createRoot(rootElement).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="fspresskit" element={<FSPressKit />} />
-        <Route path="sgpresskit" element={<SGPressKit />} />
+        <Route path="fel-survivors-presskit" element={<FSPressKit />} />
+        <Route path="smashit-games-presskit" element={<SGPressKit />} />
         <Route
           path="discord"
           element={<ExternalRedirect to="https://discord.gg/84zvK3y3Cs" />}

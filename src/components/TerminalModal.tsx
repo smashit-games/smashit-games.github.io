@@ -71,7 +71,7 @@ const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen }) => {
         </div>
 
         {/* Working Press Kit Link */}
-        <Link to="/fspresskit" className="terminal-modal-link">
+        <Link to="/fel-survivors-presskit" className="terminal-modal-link">
           <FaFileAlt size={32} />
           <span>PressKit</span>
         </Link>

@@ -123,7 +123,7 @@ function App() {
             Privacy Policy
           </Link>
           <span className="mx-2">|</span>
-          <Link to="sgpresskit" className="underline hover:text-white">
+          <Link to="smashit-games-presskit" className="underline hover:text-white">
             Press Kit
           </Link>
         </footer>

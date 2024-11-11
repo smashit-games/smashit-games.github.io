@@ -2,26 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script type="text/javascript">
     // Single Page Apps for GitHub Pages
     // https://github.com/rafgraph/spa-github-pages
     (function(l) {
       if (l.search[1] === '/' ) {
-        var decoded = l.search.slice(1).split('&').map(function(s) {
-          return s.replace(/~and~/g, '&');
-        }).join('?');
+        const decoded = l.search.slice(1).split('&').map(function(s) {
+          return s.replace(/~and~/g, '&')
+        }).join('?')
         window.history.replaceState(null, null,
           l.pathname.slice(0, -1) + decoded + l.hash
         );
       }
     }(window.location));
   </script>
-  <title>smashit.games</title>
+  <title>smashit.games - VR Game Studio in Brisbane, Australia</title>
+
+  <!-- Meta Tags for SEO -->
+  <meta name="description" content="smashit.games is a Brisbane-based indie VR game studio creating immersive experiences. Discover our games and learn more about our team." />
+  <meta name="keywords" content="VR games, indie game studio, smashit.games, Fel Survivors VR, press kit" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Luke Hewitt" />
+
+  <!-- Open Graph for Social Media Sharing -->
+  <meta property="og:title" content="smashit.games - VR Game Studio in Brisbane, Australia" />
+  <meta property="og:description" content="smashit.games, a VR game studio creating thrilling experiences like Fel Survivors VR." />
+  <meta property="og:image" content="/og-hero.png" />
+  <meta property="og:url" content="https://smashit.games" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="smashit.games - VR Game Studio in Brisbane, Australia" />
+  <meta name="twitter:description" content="Explore smashit.games, a VR game studio creating thrilling experiences like Fel Survivors VR." />
+  <meta name="twitter:image" content="/og-hero.png" />
+
+  <!-- Favicon and App Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
   <base href="/" />
 </head>
 <body>

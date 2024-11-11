@@ -51,6 +51,6 @@ describe('<TerminalModal />', () => {
     );
 
     const presskitLink = screen.getByText(/PressKit/i).closest('a');
-    expect(presskitLink).toHaveAttribute('href', '/fspresskit');
+    expect(presskitLink).toHaveAttribute('href', '/fel-survivors-presskit');
   });
 });

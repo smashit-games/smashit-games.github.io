@@ -1,16 +1,12 @@
-﻿// src/components/FSPressKit.tsx
-
-import React, { useEffect } from 'react';
+﻿import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
-import fsLogo from '../assets/FelSurvivorVR_Logo_V2.png'; // Replace with your actual logo path
+import fsLogo from '../assets/FelSurvivorVR_Logo_V2.png';
 import './FSPressKit.css';
 
 const FSPressKit: React.FC = () => {
   useEffect(() => {
-    // Enable scrolling when this component is mounted
     document.body.classList.add('scrollable');
-
-    // Clean up by removing the scrollable class when the component is unmounted
     return () => {
       document.body.classList.remove('scrollable');
     };
@@ -41,16 +37,23 @@ const FSPressKit: React.FC = () => {
       alt: 'Gameplay Trailer',
       download: 'path/to/video.mp4',
     },
-    // Add more media assets as needed
   ];
 
   const handleDownloadAll = () => {
-    // Implement logic to download all media assets as a zip file
     window.location.href = 'path/to/your/media-assets.zip'; // Replace with actual path
   };
 
   return (
     <div className="fspresskit-container">
+      <Helmet>
+        <title>Fel Survivors VR - Press Kit | smashit.games</title>
+        <meta
+          name="description"
+          content="Fel Survivors VR Press Kit - Download media assets, fact sheet, and learn more about the upcoming VR roguelike shooter by smashit.games."
+        />
+        <link rel="canonical" href="https://smashit.games/fel-survivors-presskit" />
+      </Helmet>
+
       {/* Header */}
       <header className="fspresskit-header">
         <img src={fsLogo} alt="Fel Survivors VR Logo" className="fspresskit-logo" />
@@ -60,7 +63,6 @@ const FSPressKit: React.FC = () => {
       {/* Fact Sheet */}
       <section className="fspresskit-section">
         <h2>Fact Sheet</h2>
-        <br />
         <table className="fact-sheet">
           <tbody>
           <tr>
@@ -93,45 +95,34 @@ const FSPressKit: React.FC = () => {
 
       {/* Game Overview */}
       <section className="fspresskit-section">
-      <h2>Game Overview</h2>
-        <br />
+        <h2>Game Overview</h2>
         <p>
-          <b>Fel Survivors VR</b> is an adrenaline-pumping virtual reality roguelike shooter that throws you into a
-          demonic hellscape teeming with relentless enemies. Inspired by the addictive gameplay of titles like *Vampire
-          Survivors*, players choose from a variety of classes in the safety of the 'Sanctuary' before diving into
-          intense battles. Collect experience, level up, and select from a range of temporary perks and auto-firing
-          abilities to strategize your survival. Defeat minibosses, acquire powerful abilities, and gear up to face the
-          final boss. With each session, gather gold to unlock permanent upgrades in the Idol Shop, enhancing your stats
-          for future runs.
+          <b>Fel Survivors VR</b> is an adrenaline-pumping virtual reality roguelike shooter that throws you into a demonic
+          hellscape teeming with relentless enemies. Inspired by the addictive gameplay of titles like *Vampire Survivors*,
+          players choose from a variety of classes in the safety of the 'Sanctuary' before diving into intense battles.
+          Collect experience, level up, and select from a range of temporary perks and auto-firing abilities to strategize
+          your survival.
         </p>
       </section>
 
       {/* Features */}
       <section className="fspresskit-section">
         <h2>Key Features</h2>
-        <br />
         <ul>
-          <li><b>Class Selection:</b> Choose from multiple classes, each with unique starting weapons and abilities.
-          </li>
+          <li><b>Class Selection:</b> Choose from multiple classes, each with unique starting weapons and abilities.</li>
           <li><b>Dynamic Abilities:</b> Unlock up to 3 random abilities per run, making each session unique.</li>
           <li><b>Perks System:</b> Level up to select temporary perks that boost your stats and abilities.</li>
-          <li><b>Power-ups:</b> Find temporary items that provide significant boosts to help you survive the onslaught.
-          </li>
+          <li><b>Power-ups:</b> Find temporary items that provide significant boosts to help you survive the onslaught.</li>
           <li><b>Permanent Progression:</b> Collect gold to purchase permanent stat upgrades in the Idol Shop.</li>
-          <li><b>Challenging Bosses:</b> Face off against minibosses and a final boss that test your strategy and skill.
-          </li>
-          <li><b>Immersive VR Experience:</b> Fully realised virtual reality environments optimized for Meta Quest 2 and
-            up.
-          </li>
+          <li><b>Challenging Bosses:</b> Face off against minibosses and a final boss that test your strategy and skill.</li>
+          <li><b>Immersive VR Experience:</b> Fully realised virtual reality environments optimized for Meta Quest 2 and up.</li>
         </ul>
       </section>
 
       {/* Media Assets */}
       <section className="fspresskit-section">
         <h2>Media Assets</h2>
-        <br />
         <p>Click on any asset to view it in full size. You can download individual assets or grab them all at once.</p>
-        <br />
         <div className="media-grid">
           {mediaAssets.map((asset) => (
             <div key={asset.id} className="media-item">
@@ -159,13 +150,6 @@ const FSPressKit: React.FC = () => {
         <p>
           For press inquiries, please contact us at{' '}
           <a href="mailto:press@smashit.games">press@smashit.games</a>.
-        </p>
-        <p>
-          Visit our website at{' '}
-          <a href="https://smashit.games" target="_blank" rel="noopener noreferrer">
-            smashit.games
-          </a>
-          .
         </p>
       </section>
 
